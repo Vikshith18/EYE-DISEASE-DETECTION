@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+
+::selection { background: #f2a65a; color: #10151c; }
+
+.light body { background: #f6f4ef; color: #1c2531; }
+
+@keyframes blink {
+  0%, 92%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.06); }
+}
+@keyframes drift {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(3px); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+.eyelid-top, .eyelid-bottom { animation: blink 5s ease-in-out infinite; transform-origin: center; }
+.iris-hero { animation: drift 8s ease-in-out infinite; }
+.pulse-dot { animation: pulse 2.4s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .eyelid-top, .eyelid-bottom, .iris-hero, .pulse-dot { animation: none !important; }
+}
